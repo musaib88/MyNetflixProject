@@ -28,10 +28,10 @@ public class SmsSenderServiceImpl {
         user.setUserOtpGenerated(otpGenerator.getOtpSent());
         user.setOtpValidity(otpGenerator.getOtpExpireTime());
         userRep.save(user);
-        Twilio.init("AC45d9e7b61a5f065f84aa6b3af705d889","150acf6d3e1feb0c3f00004c83174411" );
+        Twilio.init("AuthId","AuthToken" );
         Message message = Message.creator(
                         new PhoneNumber(phoneNumber),
-                        new PhoneNumber("+14452694252"),"your otp is " + otp +"  valid for 5 minutes"
+                        new PhoneNumber("your twilo phoneNo"),"your otp is " + otp +"  valid for 5 minutes"
                         )
                 .create();}
         catch (BadCredentialsException e){
